@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Square</title>
+        <meta charset="ISO-8859-1">
+        <style type="text/css">
+            #myCanvas {
+                border: 1px solid black;
+            }
+        </style>
+        <script src="./shape.js"></script>
+        <script src="./square.js"></script>
+        <script id="fragShader" type="fragmentShader">
+            precision mediump float;
+
+            void main() {
+                gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width = 400 height = 400></canvas>
+
+        <script>
+           
+            /** @type {HTMLCanvasElement} */
+            let canvas = document.getElementById("myCanvas");
+            /** @type {WebGLRenderingContext} */
+            let gl = canvas.getContext("webgl");
+
+            render(canvas, gl)
+            function callback(time) {
+                square(gl);
+                requestAnimationFrame(callback)
+            }
+
+            requestAnimationFrame(callback);
+        </script>
+    </body>
+
+</html>

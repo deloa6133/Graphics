@@ -1,0 +1,52 @@
+<!--
+    Author: Adam Delo
+    Date: 09/19/2019
+-->
+
+<html>
+    <head>
+        <!-- Title of the HTML page-->
+        <title>Shapes</title>
+        <!-- Single byte encording that can represent the first 256 Unicode characters-->
+        <meta charset="ISO-8859-1">
+        <!-- CSS styling for the canvas size and border color/size-->
+        <style type="text/css">
+            #drawArea {
+                border: 1px solid black;
+                width: 600px;
+                height: 600px;
+            }
+        </style>
+        <!-- Imports the shapes.js file to be used in the HTML file-->
+        <script src="shapes.js"></script>
+        <!-- Creation of the star fragment shader-->
+        <script id="starFragment" type="shader/fragment">
+            
+            void main() {
+                gl_FragColor = vec4(0.2, 0.0, 0.4, 1.0);
+            }
+        </script>
+        <!-- Creation of the hexagon fragment shader-->
+        <script id="hexagonFragment" type="shader/fragment">
+            
+            void main() {
+                gl_FragColor = vec4(1.0, 0.0, 0.4, 1.0);
+            }
+        </script>
+        <!-- Creation of the circle fragment shader-->
+        <script id="circleFragment" type="shader/fragment">
+            
+            void main() {
+                gl_FragColor = vec4(0.6, 0.0, 0.6, 1.0);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Creates a canvas with an ID of drawArea to be used for the javascript WebGL information-->
+        <canvas id="drawArea"></canvas>
+        <script>
+            // Starts the rendering of the WebGL data
+            render();
+        </script>
+    </body>
+</html>
